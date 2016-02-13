@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet var currentQuestionLabel: UILabel!
-    @IBOutlet var currentQuestionLabelCenterXConstraint: NSLayoutConstraint!
     @IBOutlet var nextQuestionLabel: UILabel!
-    var questionSpace: UILayoutGuide!
+    @IBOutlet var currentQuestionLabelCenterXConstraint: NSLayoutConstraint!
+    @IBOutlet var nextQuestionLabelCenterXConstraint: NSLayoutConstraint!
     
     @IBOutlet var answerLabel: UILabel!
     
@@ -43,22 +43,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentQuestionLabel.text = questions[currentQuestionIndex]
-        let questionSpace = UILayoutGuide()
-        view.addLayoutGuide(questionSpace)
-        questionSpace.widthAnchor.constraintEqualToAnchor(view.widthAnchor).active = true
-        nextQuestionLabel.centerXAnchor.constraintEqualToAnchor(questionSpace.leadingAnchor).active = true
-        currentQuestionLabel.centerXAnchor.constraintEqualToAnchor(questionSpace.trailingAnchor).active = true
         updateOffScreenLabel()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        nextQuestionLabel.alpha = 0
         
     }
     
     func animateLabelTransitions() {
         view.layoutIfNeeded()
+        let screenWidth = view.frame.width
         self.nextQuestionLabelCenterXConstraint.constant = 0
+        self.currentQuestionLabelCenterXConstraint.constant = +screenWidth
         
         UIView.animateWithDuration(0.5,
             delay: 0.5,
@@ -66,6 +64,8 @@ class ViewController: UIViewController {
             initialSpringVelocity: 1.0,
             options: [.CurveLinear],
             animations: {
+                self.currentQuestionLabel.alpha = 0
+                self.nextQuestionLabel.alpha = 1
                 self.view.layoutIfNeeded()
             },
             completion: { _ in
@@ -79,7 +79,8 @@ class ViewController: UIViewController {
     }
     
     func updateOffScreenLabel() {
-        currentQuestionLabelCenterXConstraint.constant = 0
+        let screenWidth = view.frame.width
+        nextQuestionLabelCenterXConstraint.constant = -screenWidth
     }
 }
 
