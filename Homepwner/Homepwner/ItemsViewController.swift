@@ -17,6 +17,9 @@ class ItemsViewController: UITableViewController {
         // Get the height of the status bar
         let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
+        if let background = UIImage(named: "background") {
+            tableView.backgroundColor = UIColor(patternImage: background)
+        }
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
     }
@@ -39,6 +42,8 @@ class ItemsViewController: UITableViewController {
 
             cell.textLabel?.text = item.name
             cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+            cell.heightAnchor.constraintEqualToConstant(60)
+            cell.textLabel?.font = cell.textLabel?.font.fontWithSize(20)
 
             return cell
         }
