@@ -22,6 +22,8 @@ class ItemsViewController: UITableViewController {
         }
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 65
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,19 +33,20 @@ class ItemsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Get new or recycled cell
-        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! ItemCell
+        
+        cell.updateLabels()
 
         if indexPath.row == itemStore.allItems.count {
-            cell.textLabel?.text = "No more items!"
+            cell.nameLabel.text = "No more items!"
             return cell
         }
         else {
             let item = itemStore.allItems[indexPath.row]
 
-            cell.textLabel?.text = item.name
-            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
-            cell.heightAnchor.constraintEqualToConstant(60)
-            cell.textLabel?.font = cell.textLabel?.font.fontWithSize(20)
+            cell.nameLabel.text = item.name
+            cell.serialNumberLabel.text = item.serialNumber
+            cell.valueLabel.text = "$\(item.valueInDollars)"
 
             return cell
         }
