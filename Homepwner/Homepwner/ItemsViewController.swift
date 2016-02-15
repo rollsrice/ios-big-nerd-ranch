@@ -49,6 +49,13 @@ class ItemsViewController: UITableViewController {
         }
     }
 
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if indexPath.row == itemStore.allItems.count {
+            return false
+        }
+        return true
+    }
+
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let item = itemStore.allItems[indexPath.row]
