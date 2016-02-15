@@ -20,4 +20,8 @@ class ItemCell: UITableViewCell {
         let captionFont = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
         serialNumberLabel.font = captionFont
     }
+
+    func setValueLabelColor(color: UIColor) {
+        valueLabel.textColor = color
+    }
 }
