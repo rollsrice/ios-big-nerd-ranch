@@ -39,6 +39,8 @@ class ItemsViewController: UITableViewController {
 
         if indexPath.row == itemStore.allItems.count {
             cell.nameLabel.text = "No more items!"
+            cell.serialNumberLabel.text = ""
+            cell.valueLabel.text = ""
             return cell
         }
         else {
@@ -81,6 +83,11 @@ class ItemsViewController: UITableViewController {
 
             presentViewController(ac, animated: true, completion: nil)
         }
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
