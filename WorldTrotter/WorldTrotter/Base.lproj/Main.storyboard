@@ -18,66 +18,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHD-P9-0g1">
-                                <rect key="frame" x="247" y="165" width="106" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnQ-QG-e42">
-                                <rect key="frame" x="187" y="302" width="226" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkG-bz-7MW">
-                                <rect key="frame" x="164" y="118" width="273" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZA-d6-hsh">
-                                <rect key="frame" x="175" y="28" width="250" height="82"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="YQt-Cp-Wzq"/>
-                                </constraints>
-                                <color key="textColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="68"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
-                                <connections>
-                                    <action selector="fahrenheitFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="Ib9-LD-rIT"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hMe-Dv-B0Z"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krb-fk-CLg">
-                                <rect key="frame" x="244" y="212" width="114" height="82"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="68"/>
-                                <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lmz-8m-c0g">
+                                <rect key="frame" x="20" y="28" width="560" height="515"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZA-d6-hsh">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="103"/>
+                                        <color key="textColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="68"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                                        <connections>
+                                            <action selector="fahrenheitFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="Ib9-LD-rIT"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="hMe-Dv-B0Z"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkG-bz-7MW">
+                                        <rect key="frame" x="0.0" y="103" width="560" height="103"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHD-P9-0g1">
+                                        <rect key="frame" x="0.0" y="206" width="560" height="103"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krb-fk-CLg">
+                                        <rect key="frame" x="0.0" y="309" width="560" height="103"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="68"/>
+                                        <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnQ-QG-e42">
+                                        <rect key="frame" x="0.0" y="412" width="560" height="103"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.95686274509803915" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="eHD-P9-0g1" firstAttribute="top" secondItem="pkG-bz-7MW" secondAttribute="bottom" constant="8" id="2FA-Ns-f3g"/>
-                            <constraint firstItem="JZA-d6-hsh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2rH-kw-EXg"/>
-                            <constraint firstItem="JZA-d6-hsh" firstAttribute="centerX" secondItem="pkG-bz-7MW" secondAttribute="centerX" id="3yX-aF-4AM"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="WnQ-QG-e42" secondAttribute="trailing" id="4ra-BL-8gs"/>
-                            <constraint firstItem="JZA-d6-hsh" firstAttribute="centerX" secondItem="pkG-bz-7MW" secondAttribute="centerX" id="Bjy-Ke-gNR"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="pkG-bz-7MW" secondAttribute="trailing" id="KoE-tK-VU5"/>
-                            <constraint firstItem="JZA-d6-hsh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Ohm-3X-wwa"/>
-                            <constraint firstItem="krb-fk-CLg" firstAttribute="top" secondItem="eHD-P9-0g1" secondAttribute="bottom" constant="8" id="SMD-Ra-aFj"/>
-                            <constraint firstItem="eHD-P9-0g1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VBC-3s-QYm"/>
-                            <constraint firstItem="krb-fk-CLg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Wof-nh-eXP"/>
-                            <constraint firstItem="krb-fk-CLg" firstAttribute="centerX" secondItem="pkG-bz-7MW" secondAttribute="centerX" id="XCa-sl-Fm8"/>
-                            <constraint firstItem="eHD-P9-0g1" firstAttribute="centerX" secondItem="pkG-bz-7MW" secondAttribute="centerX" id="bXk-72-nPn"/>
-                            <constraint firstItem="WnQ-QG-e42" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fwi-xD-PY7"/>
-                            <constraint firstItem="WnQ-QG-e42" firstAttribute="centerX" secondItem="pkG-bz-7MW" secondAttribute="centerX" id="lZd-c3-akW"/>
-                            <constraint firstItem="pkG-bz-7MW" firstAttribute="top" secondItem="JZA-d6-hsh" secondAttribute="bottom" constant="8" id="pcK-cd-ZNm"/>
-                            <constraint firstItem="WnQ-QG-e42" firstAttribute="top" secondItem="krb-fk-CLg" secondAttribute="bottom" constant="8" id="qLi-bz-ixA"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="krb-fk-CLg" secondAttribute="trailing" id="r78-4S-dUz"/>
-                            <constraint firstItem="pkG-bz-7MW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="wPm-H9-ujJ"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="eHD-P9-0g1" secondAttribute="trailing" id="yPe-QJ-hMd"/>
+                            <constraint firstItem="lmz-8m-c0g" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="22X-ug-oXZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lmz-8m-c0g" secondAttribute="bottom" constant="8" id="Rde-oj-mYA"/>
+                            <constraint firstItem="lmz-8m-c0g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="X2r-U7-QMm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lmz-8m-c0g" secondAttribute="trailing" id="tRS-4Y-1ol"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="84T-HD-NOm" appends="YES" id="suJ-6j-xst"/>
